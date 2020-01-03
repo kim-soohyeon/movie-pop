@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <style>
+  	@import url('https://fonts.googleapis.com/css?family=Poor+Story&display=swap');
+  </style>
   <head>
-    <title>Photon &mdash; Colorlib Website Template</title>
+    <title>movie_pop &mdash; kim-soohyeon</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,16 +49,13 @@
 
 
     <header class="site-navbar py-3" role="banner">
-
       <div class="container-fluid">
         <div class="row align-items-center">
-          
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Photon</a></h1>
+            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">movie_pop</a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
-
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                 <li class="active"><a href="index.html">Home</a></li>
                 <li class="has-children">
@@ -84,32 +84,11 @@
               </ul>
             </nav>
           </div>
-
           <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
-            <div class="d-none d-xl-inline-block">
-              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li>
-                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
+              <button type="button" class="btn btn-outline-info" onclick="epenLoginPop();"><div style="font-family:Poor Story; font-size:18px;">로그인</div></button>
           </div>
-
         </div>
       </div>
-      
     </header>
 
 
@@ -227,8 +206,11 @@
   <script>
     $(document).ready(function(){
       $('#lightgallery').lightGallery();
-    });
-  </script>
+    }); 
     
+    function epenLoginPop() { 
+    	window.open("login", "a", "width=500, height=500, left=100, top=50"); 
+    }
+  </script>
   </body>
 </html>
