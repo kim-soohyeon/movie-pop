@@ -202,10 +202,40 @@
   <script src="js/jquery.mousewheel.min.js"></script>
 
   <script src="js/main.js"></script>
-  
   <script>
     $(document).ready(function(){
       $('#lightgallery').lightGallery();
+      
+      $.ajax({ 
+    	  type: 'get',
+    	  url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=037e76672df8ccd4c7e49a7c67459e31&targetDt=20200102', 
+    	  success: function (data) { 
+    		  console.log("test");
+
+
+    		  var url = "http://kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do?dtTp=movie&"+data.boxOfficeResult.dailyBoxOfficeList[0].movieCd;
+    		 
+    		  $.get(url, function(data) {
+
+    				console.log(data);
+debugger
+    			});
+    		/* request(url, function (err, res, html) {
+    		    if (!err) {
+    		        var $ = cheerio.load(html);
+    		        
+    		        // 블로그 title 정보 가져오기
+    		        $(".fl .thumb").each(function () {
+    		            var post = {"title": "", "link": "", "summary": "", "category": []};
+    		            var data2 = $(this);
+    		            
+    		            post["title"] = data2.text();
+    		            post["link"] = data2.attr("href");
+    		        });
+    		    }
+    		}) */
+      	  } 
+      });
     }); 
     
     function epenLoginPop() { 
