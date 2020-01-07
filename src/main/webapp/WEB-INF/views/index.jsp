@@ -203,41 +203,50 @@
 
   <script src="js/main.js"></script>
   <script>
-    $(document).ready(function(){
-      $('#lightgallery').lightGallery();
+	$(document).ready(function(){
+		var str="${dataArr}";
+		$('#lightgallery').lightGallery();
       
-      $.ajax({ 
-    	  type: 'get',
-    	  url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=037e76672df8ccd4c7e49a7c67459e31&targetDt=20200102', 
-    	  success: function (data) { 
-    		  console.log("test");
+		var date = new Date(); 
+		var year = date.getFullYear(); 
+		var month = new String(date.getMonth()+1); 
+		var day = new String(date.getDate()-1); 
 
+		// 한자리수일 경우 0을 채워준다.
+		if(month.length == 1){ 
+		  month = "0" + month; 
+		} 
+		if(day.length == 1){ 
+		  day = "0" + day; 
+		} 
 
-    		  var url = "http://kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do?dtTp=movie&"+data.boxOfficeResult.dailyBoxOfficeList[0].movieCd;
-    		 
-    		  $.get(url, function(data) {
-
-    				console.log(data);
-debugger
-    			});
-    		/* request(url, function (err, res, html) {
-    		    if (!err) {
-    		        var $ = cheerio.load(html);
-    		        
-    		        // 블로그 title 정보 가져오기
-    		        $(".fl .thumb").each(function () {
-    		            var post = {"title": "", "link": "", "summary": "", "category": []};
-    		            var data2 = $(this);
-    		            
-    		            post["title"] = data2.text();
-    		            post["link"] = data2.attr("href");
-    		        });
-    		    }
-    		}) */
-      	  } 
-      });
+		var today=year + "" + month + "" + day;
+		
+      	$.ajax({ 
+			type: 'get',
+    	  	url: 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=037e76672df8ccd4c7e49a7c67459e31&targetDt='+today, 
+    	 	success: function (data) { 
+    			console.log("success");
+    			var movieArr = new Array();
+				for(var i=0; i<data.boxOfficeResult.dailyBoxOfficeList.length; i++){
+					movieList = new Object();                  
+					movieList.movieNm=data.boxOfficeResult.dailyBoxOfficeList[i].movieNm;//영화이름
+					movieList.movieYear=data.boxOfficeResult.dailyBoxOfficeList[i].openDt;//개봉년도
+					movieArr.push(movieList);                  
+				}
+				apiCall();
+      	  	}
+     	});
     }); 
-    
+	
+	function apiCall(){
+		$.post("/cs/test"),
+		{},
+		function(result) {
+			debugger
+			console.log("성공...")
+		};
+	}
     function epenLoginPop() { 
     	window.open("login", "a", "width=500, height=500, left=100, top=50"); 
     }
