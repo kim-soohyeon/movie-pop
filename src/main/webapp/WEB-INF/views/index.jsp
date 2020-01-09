@@ -240,12 +240,16 @@
     }); 
 	
 	function apiCall(){
-		$.post("/cs/test"),
-		{},
-		function(result) {
-			debugger
-			console.log("성공...")
-		};
+		$.ajax({ 
+			type: 'GET',
+    	  	url: 'cs/test', 
+    	  	error: function (error) { 
+    	 		console.log("실패");
+    	 	},
+    	 	success: function (data) { 
+    	 		console.log("성공");
+    	 	}
+		});
 	}
     function epenLoginPop() { 
     	window.open("login", "a", "width=500, height=500, left=100, top=50"); 
