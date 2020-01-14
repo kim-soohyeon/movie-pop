@@ -93,12 +93,14 @@ public class HomeController {
 		
 		
 		
-		return "index";
+		return "home";
 	}
 	
-	/*
-	 * @RequestMapping(value = "/{var}", method = RequestMethod.GET) public String
-	 * base(@PathVariable String var) { return var; }
-	 */
+	
+	 @RequestMapping(value = "/{var}", method = RequestMethod.GET) 
+	 public String base(@PathVariable String var) { 
+		 return var; 
+	 }
+
 	
 }
