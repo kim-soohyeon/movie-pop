@@ -181,7 +181,7 @@
     	 	success: function (data) {
     	 		for(i=0; i<data.length; i++){
     	 			movieArr[i].imgSrc=data[i];
-    	 			$('#slideItem').tmpl(movieArr[i]).appendTo('#slideWrap').listview("refresh");
+    	 			$('#slideItem').tmpl(movieArr[i]).appendTo('#slideWrap')/* .listview("refresh") */;
     	 		}
     	 		console.log("성공");
     	 	}
