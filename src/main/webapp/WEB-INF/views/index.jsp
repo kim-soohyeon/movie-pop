@@ -86,13 +86,102 @@
 	  	<div class="container-fluid" data-aos="fade" data-aos-delay="500">
 	    	<div class="swiper-container images-carousel">
 	        	<div class="swiper-wrapper" id="slideWrap">
-	<!-- 여기 -->
-	        	</div>
-		        <div class="swiper-pagination"></div>
-		        <div class="swiper-button-prev"></div>
-		        <div class="swiper-button-next"></div>
-		        <div class="swiper-scrollbar"></div>
-	    	</div>
+					<div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm1">Nature</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img1" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm2">Portrait</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img2" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm3">People</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img3" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm4">Architecture</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img4" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm5">Animals</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img5" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm6">Sports</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img6" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm7">Travel</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img7" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm8">Animals</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img8" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm9">Sports</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img9" alt="Image">
+		              </div>
+		            </div>
+		            <div class="swiper-slide">
+		              <div class="image-wrap">
+		                <div class="image-info">
+		                  <h2 class="mb-3 movieNm10">Travel</h2>
+		                  <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
+		                </div>
+		                <img id="img10" alt="Image">
+		              </div>
+		            </div>
+			    </div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-scrollbar"></div>
+			</div>
 	  	</div>
 	  	<div class="footer py-4">
 		    <div class="container-fluid">
@@ -104,18 +193,7 @@
 		    </div>
 	  	</div>
   	</div>
-  	<!-- slide 목록 -->
-  	<script id="slideItem" type="text/x-jquery-tmpl">
-  	<div class="swiper-slide">                                                         
-		<div class="image-wrap">                                                         
- 	   		<div class="image-info">                                                       
- 	     		<h2 class="mb-3">\${movieNm}</h2>                                                 
-	      		<a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>
- 	   		</div>                                                                         
- 	   		<img src="\${imgSrc}" alt="Image">                                       
-	  	</div>                                                                           
-	</div>                                                                             
-  	</script>
+
 	<script src="js/jquery-3.3.1.min.js"></script>
   	<script src="js/jquery-migrate-3.0.1.min.js"></script>
   	<script src="js/jquery-ui.js"></script>
@@ -164,7 +242,7 @@
 					movieList = new Object();                  
 					movieList.movieNm=data.boxOfficeResult.dailyBoxOfficeList[i].movieNm;//영화이름
 					movieList.movieYear=data.boxOfficeResult.dailyBoxOfficeList[i].openDt;//개봉년도
-					movieArr.push(movieList);                  
+					movieArr.push(movieList);
 				}
 				apiCall(movieArr);
       	  	}
@@ -181,7 +259,8 @@
     	 	success: function (data) {
     	 		for(i=0; i<data.length; i++){
     	 			movieArr[i].imgSrc=data[i];
-    	 			$('#slideItem').tmpl(movieArr[i]).appendTo('#slideWrap')/* .listview("refresh") */;
+    	 			$('#img'+(i+1)).attr('src',movieArr[i].imgSrc);
+    	 			$('.movieNm'+(i+1)).text(movieArr[i].movieNm);
     	 		}
     	 		console.log("성공");
     	 	}
